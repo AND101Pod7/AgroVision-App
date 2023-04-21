@@ -10,7 +10,7 @@ Time spent: **1** hours spent in total
 
 ## Summary
 
-This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **provides the user with location specific regional climate & USDA hardiness zone information which is used to get food gardening options and growth care information.**
+This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **provides the user with location specific regional climate & USDA hardiness zone information which is used to get food gardening options (vegetables, herbs, fruits), growth care information, etc.**
 
 If we had to describe this milestone in three (3) emojis, they would be: **🌱, 🥕, 🗺️**
 
