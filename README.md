@@ -2,7 +2,7 @@
 
 Submitted by:
 - **Alisha Jafry**
-- **Christina B**
+- **Christina Burden**
 - **Franko Sanabria**
 - **Alyaa Mossa**
 
