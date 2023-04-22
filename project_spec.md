@@ -22,7 +22,7 @@
 - **Story:** One of our goals when developing this app will be to place emphasis on creating a user-friendly experience, in which a new aspiring gardener can easily take control of their diet from their backyard or balcony garden will be able to easily get started. 
 - **Market:** The intended audience for this app is not meant to be extremely niche, and only directed for people who are existing gardeners, farmers, botanists, and other related professionals. The focus of this app is regular food gardening that anyone can start in their home, which means the market is specific but not too narrow.
 - **Habit:** The aim of this app is certainly not be to indefinitely latch onto the users' attention but rather for quick access to gardening information and record keeping purposes.
-- **Scope:** The scope for this app is still in the process of being developed but it has definitely been narrowed down greatly since the conception of our idea, yet it still remains an exciting idea that we are looking forward to bringing to life. Because of the potential usage of 3 APIs simultaneously and our beginner level experience with Kotlin app development, this app is likely to be technically challenging even with an extremely stripped down version of the app. We will continue to adjust our objectives as we go but we have a clearly defined overarching objective for location-specific food gardening information.
+- **Scope:** The scope for this app is still in the process of being developed and it has definitely been narrowed down greatly since the conception of our idea, yet it still remains an exciting idea that we are looking forward to bringing to life. Because of the potential usage of 3 APIs that may or may not be well-documented simultaneously and our beginner level experience with Kotlin app development, this app is likely to be technically challenging even with an extremely stripped down version of the app. We will continue to adjust our objectives as we go but we have a clearly defined overarching objective for location-specific food gardening information.
 
 
 ## Product Spec
@@ -32,7 +32,7 @@
 Required Features:
 
 - App gathers location information on user
-    - Location information can be gathered through user-inputted zip code or automatically obtaining geolocation information
+    - Location information can be gathered through user-inputted zip code or automatically obtaining geolocation information 
 - App uses said information to obtain location specific food gardening options
     - USDA Plant Hardiness Zones and/or Koppen Climate Classification
 - App provides some plant specific growth/care details
@@ -60,9 +60,9 @@ Required Feature
 
 - **GET USDA Hardiness Zone and GET Classification**
   - User inputs zipcode or agree to location tracking
-- **GET Plant List (Perenual or Permapeople API)**
+- **GET Plant List (Permapeople API)**
     - User browses through list of plants
-- **GET Plant Details (Perenual or Permapeople API)**
+- **GET Plant Details (Permapeople API)**
     - App provides some plant specific growth/care details
 
 ## Wireframes
@@ -84,14 +84,20 @@ Dash Board #2
 Explore
 
 
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
 ## Build Notes
 
 Here's a place for any other notes on the app, it's creation 
 process, or what you learned this unit!  
+
+
+Required Features:
+
+- App gathers location information on user
+    - Location information can be gathered through user-inputted zip code or automatically obtaining geolocation information 
+- App uses said information to obtain location specific food gardening options
+    - USDA Plant Hardiness Zones and/or Koppen Climate Classification
+- App provides some plant specific growth/care details
+
 
 For Milestone 2, include **2+ GIFs** of the build process here!
 
