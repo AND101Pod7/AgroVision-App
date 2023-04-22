@@ -68,7 +68,21 @@ Required Feature
 ## Wireframes
 
 <!-- Add picture of your hand sketched wireframes in this section -->
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://user-images.githubusercontent.com/101878146/233756216-704f4e24-5767-4ab1-8f6f-091c3355ddc9.jpg" width=300>
+Log In
+
+
+<img src="https://user-images.githubusercontent.com/101878146/233756299-3765f7a4-82d6-496e-ab78-6c8382086b15.jpg" width=300>
+Dash Boaard
+
+
+<img src="https://user-images.githubusercontent.com/101878146/233756311-62c0eeaf-c4bd-4aae-a0cb-08300cf30546.jpg" width=300>
+Dash Board #2
+
+
+<img src="https://user-images.githubusercontent.com/101878146/233756328-2c8ce7ce-1c79-466f-a7b3-a6fb1f527835.jpg" width=300>
+Explore
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
