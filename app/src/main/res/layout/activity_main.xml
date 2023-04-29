@@ -7,13 +7,20 @@
     tools:context=".MainActivity">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/agrovision_logo"
+        android:layout_marginStart="20dp"
+
+        android:adjustViewBounds="true"
+        android:maxWidth="250dp"
+        android:maxHeight="100dp"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintEnd_toStartOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +31,9 @@
         android:src="@mipmap/agrovision_logo_v2_foreground"
         android:background="@color/white"
         android:backgroundTint="@color/white"
+
+        android:layout_margin="10dp"
+
         app:layout_constraintBottom_toBottomOf="@id/page_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/page_title"
@@ -116,7 +126,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/green_circle"
         app:layout_constraintBottom_toBottomOf="@id/search_bar"
         app:layout_constraintStart_toEndOf="@id/search_bar"
         app:layout_constraintTop_toTopOf="@id/search_bar"

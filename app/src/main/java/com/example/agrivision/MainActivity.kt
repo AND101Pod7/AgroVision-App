@@ -15,12 +15,11 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var plantList: MutableList<String>
+    private lateinit var plantList:  MutableList<Pair<String, String>>
     private lateinit var rvPlants: RecyclerView
 
-    var plantImageURL = ""
-    var imagePath = ""
     var plantName = ""
+    var plantImageURL = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,24 +41,34 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPlantImageURL() {
         val client = AsyncHttpClient()
-        val url = "https://permapeople.org/api/plants?last_id=100"
-        val headers = RequestHeaders()
-        headers["x-permapeople-key-id"] = "JPQEwO900cMh"
-        headers["x-permapeople-key-secret"] = "7834ece4-413a-48c6-ac48-a804e0167d9e"
+        val url = "https://perenual.com/api/species-list"
         val params = RequestParams()
+        params["key"] = "sk-UD1D644ca5c0ecefa534"
+        //don't think this is working
+        params["edible"] = "true"
 
-        client.get(url, headers, params, object: JsonHttpResponseHandler() {
+        client.get(url, params, object: JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
-                val plantsArray = json.jsonObject.getJSONArray("plants")
+                val plantsArray = json.jsonObject.getJSONArray("data")
                 Log.d("Plant List", plantsArray.toString())
-                // Iterate over the plants array to get individual plant objects
+                // iterate thru the plants array to get individual plant objects
                 for (i in 0 until plantsArray.length()) {
                     val plant = plantsArray.getJSONObject(i)
-                    val plantName = plant.getString("name")
+                    plantName = plant.getString("common_name")
                     Log.d("Plant Name", plantName)
-                    // get other plant data here...
 
-                    plantList.add(plantName)
+                    //in JSON example, original_url is nested inside the default_image object which is imageObject here
+                    val imageObject = plant.getJSONObject("default_image")
+
+                    if (imageObject.has("original_url")) {
+                        plantImageURL = imageObject.getString("original_url")
+                    } else {
+                        // if the plant doesn't have an image, call the function again to get a new plant
+                        getPlantImageURL()
+                    }
+                    Log.d("Plant Image", "plant image loaded")
+
+                    plantList.add(Pair(plantImageURL, plantName))
                 }
 
             }
@@ -73,18 +82,17 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-   private fun getNextImage(button: Button, imageView: ImageView) {
-            button.setOnClickListener {
-                getPlantImageURL()
-                Glide.with(this)
-                    .load(plantImageURL)
-                    .fitCenter()
-                    .into(imageView)
-                val plantName = findViewById<TextView>(R.id.plant_name)
-                plantName.text = title
-            }
+    private fun getNextImage(button: Button, imageView: ImageView) {
+        button.setOnClickListener {
+            getPlantImageURL()
+            Glide.with(this)
+                .load(plantImageURL)
+                .fitCenter()
+                .into(imageView)
+            val plantName = findViewById<TextView>(R.id.plant_name)
+            plantName.text = title
+        }
     }
-
 }
 
 

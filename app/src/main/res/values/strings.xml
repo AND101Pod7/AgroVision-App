@@ -3,7 +3,7 @@
     <string name ="title_text">Welcome</string>
     <string name ="subheader_text">Find your plant care information</string>
     <string name="searchbar_text">  Plant name</string>
-    <string name ="app_slogan"> "AgroVision helps ypu grow"</string>
+    <string name ="app_slogan"> "AgroVision helps you grow"</string>
     <string name ="results_text">Results</string>
     <string name ="button_text_light">Light Needs</string>
     <string name ="button_text_zone">Hardiness Zone</string>

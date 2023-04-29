@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class PlantAdapter (private val plantList: MutableList<String>) : RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+class PlantAdapter(private val plantList: MutableList<Pair<String, String>>) : RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val plantImage: ImageView
@@ -33,11 +33,11 @@ class PlantAdapter (private val plantList: MutableList<String>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Glide.with(holder.itemView)
-            .load(plantList[position])
+            .load(plantList[position].first)
             .centerCrop()
             .into(holder.plantImage)
 
-        holder.plantName.text = plantList[position]
+        holder.plantName.text = plantList[position].second
 
         Log.d("PlantAdapter", "Binding plant at position $position")
     }
