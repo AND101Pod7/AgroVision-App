@@ -102,6 +102,7 @@ Required Features:
 For Milestone 2, include **2+ GIFs** of the build process here!
 
 <img src='https://i.imgur.com/6ouCmRF.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='https://i.imgur.com/MtODkU6.gif' title='Video Demo' width='' alt='Video Demo' />
 
 GIF created with **ScreenToGIF**
 
