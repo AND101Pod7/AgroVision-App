@@ -101,6 +101,10 @@ Required Features:
 
 For Milestone 2, include **2+ GIFs** of the build process here!
 
+<img src='https://i.imgur.com/j1pDDcX.gif' title='Video Demo' width='' alt='Video Demo' />
+
+GIF created with **ScreenToGIF**
+
 ## License
 
 Copyright **2023** **Alisha Jafry**
