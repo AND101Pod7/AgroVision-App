@@ -1,21 +1,16 @@
 package com.example.agrivision
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.codepath.asynchttpclient.AsyncHttpClient
-import com.codepath.asynchttpclient.RequestHeaders
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var plantList:  MutableList<Pair<String, String>>
+    private lateinit var plantList:  MutableList<Map<String, String>>
     private lateinit var rvPlants: RecyclerView
 
     var plantName = ""
@@ -31,12 +26,6 @@ class MainActivity : AppCompatActivity() {
         getPlantImageURL()
         Log.d("plantImageURL", "plant image URL set")
 
-        val adapter = PlantAdapter(plantList)
-        rvPlants.adapter = adapter
-        rvPlants.layoutManager = LinearLayoutManager(this)
-
-        Log.d("Plant Adapter", "Adapter set")
-
     }
 
     private fun getPlantImageURL() {
@@ -47,14 +36,14 @@ class MainActivity : AppCompatActivity() {
         params["key"] = "sk-UD1D644ca5c0ecefa534"
         params["page"] = "1"
         //don't think this is working
-        params["edible"] = "true"
+        params["edible"] = "1"
 
         client.get(url, params, object: JsonHttpResponseHandler() {
-            override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
+            override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 val plantsArray = json.jsonObject.getJSONArray("data")
                 Log.d("Plant List", plantsArray.toString())
                 // iterate thru the plants array to get individual plant objects
-                for (i in 0 until plantsArray.length()) {
+                for (i in 0 until 30) {
                     val plant = plantsArray.getJSONObject(i)
                     plantName = plant.getString("common_name")
                     Log.d("Plant Name", plantName)
@@ -70,10 +59,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     Log.d("Plant Image", "plant image loaded")
 
-                    plantList.add(Pair(plantImageURL, plantName))
-                }
+                    plantList.add(mapOf("imageURL" to plantImageURL , "name" to plantName))
+                }//end of for loop
+                val adapter = PlantAdapter(plantList)
+                rvPlants.adapter = adapter
+                rvPlants.layoutManager = LinearLayoutManager(this@MainActivity)
 
-            }
+                Log.d("Plant Adapter", "Adapter set")
+
+            }//end of onSuccess
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,

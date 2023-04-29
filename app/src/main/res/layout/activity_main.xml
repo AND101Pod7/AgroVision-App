@@ -7,13 +7,20 @@
     tools:context=".MainActivity">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/agrovision_logo"
+
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:maxWidth="300dp"
+        android:maxHeight="100dp"
+
+        app:layout_constraintEnd_toStartOf="@id/logo"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,18 +100,20 @@
         android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="30dp"
         android:text="@string/results_text"
         android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="@id/search_bar"
-        app:layout_constraintBottom_toTopOf="@id/plant_list" />
+        app:layout_constraintBottom_toTopOf="@id/plant_list"
+        app:layout_constraintTop_toBottomOf="@id/button_two"
+        />
 
     <EditText
         android:id="@+id/search_bar"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/search_bar"
         android:inputType="textAutoCorrect"
         android:text="@string/searchbar_text"
@@ -127,12 +136,11 @@
         android:id="@+id/plant_list"
         android:layout_width="376dp"
         android:layout_height="285dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="@id/logo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/results"
-        app:layout_constraintTop_toBottomOf="@id/button_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results"
          />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
