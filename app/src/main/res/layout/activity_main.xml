@@ -11,8 +11,9 @@
         android:id="@+id/page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:src="@drawable/agrovision_logo"
+
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
 
         android:adjustViewBounds="true"
@@ -26,12 +27,13 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="129dp"
-        android:layout_height="128dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:src="@mipmap/agrovision_logo_v2_foreground"
         android:background="@color/white"
         android:backgroundTint="@color/white"
 
+        android:layout_marginTop="30dp"
         android:layout_margin="10dp"
 
         app:layout_constraintBottom_toBottomOf="@id/page_title"
