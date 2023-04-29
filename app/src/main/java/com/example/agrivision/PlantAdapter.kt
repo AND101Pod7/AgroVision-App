@@ -25,7 +25,7 @@ class PlantAdapter(private val plantList: MutableList<Pair<String, String>>) : R
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.rv_plant_item, parent, false)
+            .inflate(R.layout.plant_recycler, parent, false)
         Log.d("PlantAdapter", "Creating new ViewHolder")
 
         return ViewHolder(view)

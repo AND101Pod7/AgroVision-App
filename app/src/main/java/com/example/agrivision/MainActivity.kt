@@ -42,8 +42,10 @@ class MainActivity : AppCompatActivity() {
     private fun getPlantImageURL() {
         val client = AsyncHttpClient()
         val url = "https://perenual.com/api/species-list"
+
         val params = RequestParams()
         params["key"] = "sk-UD1D644ca5c0ecefa534"
+        params["page"] = "1"
         //don't think this is working
         params["edible"] = "true"
 
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     //in JSON example, original_url is nested inside the default_image object which is imageObject here
                     val imageObject = plant.getJSONObject("default_image")
 
-                    if (imageObject.has("original_url")) {
+                    if (imageObject.getString("original_url").isNotEmpty()) {
                         plantImageURL = imageObject.getString("original_url")
                     } else {
                         // if the plant doesn't have an image, call the function again to get a new plant
@@ -75,14 +77,14 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
-                errorResponse: String,
+                response: String,
                 throwable: Throwable?
             ) {
-                Log.d("Plant Load Error", errorResponse)
+                Log.d("Plant Load Error", response)
             }
         })
     }
-    private fun getNextImage(button: Button, imageView: ImageView) {
+   /* private fun getNextImage(button: Button, imageView: ImageView) {
         button.setOnClickListener {
             getPlantImageURL()
             Glide.with(this)
@@ -93,6 +95,8 @@ class MainActivity : AppCompatActivity() {
             plantName.text = title
         }
     }
+
+    */
 }
 
 

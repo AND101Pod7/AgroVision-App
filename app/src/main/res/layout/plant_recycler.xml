@@ -22,7 +22,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@id/plant_image"
         app:layout_constraintStart_toStartOf="@id/plant_image" />
-    <!--water-->
+    <!--water
     <TextView
         android:id="@+id/plant_water_label"
         android:layout_width="wrap_content"
@@ -41,7 +41,6 @@
         style="@style/plant_list_data_style"
         app:layout_constraintStart_toEndOf="@id/plant_water_label"
         app:layout_constraintTop_toBottomOf="@id/plant_image" />
-    <!--light-->
     <TextView
         android:id = "@+id/plant_light_label"
         android:layout_width="wrap_content"
@@ -59,7 +58,7 @@
         style="@style/plant_list_data_style"
         app:layout_constraintStart_toEndOf="@id/plant_light_label"
         app:layout_constraintTop_toTopOf="@id/plant_light_label" />
-    <!--soil-->
+
     <TextView
         android:id = "@+id/plant_soil_label"
         android:layout_width="wrap_content"
@@ -76,7 +75,6 @@
         style="@style/plant_list_data_style"
         app:layout_constraintStart_toEndOf="@id/plant_soil_label"
         app:layout_constraintTop_toTopOf="@id/plant_soil_label" />
-    <!--zone-->
     <TextView
         android:id = "@+id/plant_zone_label"
         android:layout_width="wrap_content"
@@ -93,7 +91,6 @@
         style="@style/plant_list_data_style"
         app:layout_constraintStart_toEndOf="@id/plant_zone_label"
         app:layout_constraintTop_toTopOf="@id/plant_zone_label" />
-    <!--lifecycle-->
     <TextView
         android:id = "@+id/plant_life_label"
         android:layout_width="wrap_content"
@@ -111,8 +108,7 @@
         style="@style/plant_list_data_style"
         app:layout_constraintStart_toEndOf="@id/plant_life_label"
         app:layout_constraintTop_toTopOf="@id/plant_life_label" />
-
-
+    -->
 
 
 
