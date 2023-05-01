@@ -1,4 +1,4 @@
-# AND101 Milestone 1 - **AgriVision**
+# AND101 Milestone 2 - **AgroVision (Pod 7)**
 
 Submitted by:
 - **Alisha Jafry**
@@ -6,13 +6,11 @@ Submitted by:
 - **Franko Sanabria**
 - **Alyaa Mossa**
 
-Time spent: **1** hours spent in total
+Time spent: **X** hours spent in total
 
 ## Summary
 
-This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **provides the user with location specific regional climate & USDA hardiness zone information which is used to get food gardening options (vegetables, herbs, fruits), growth care information, etc.**
-
-If we had to describe this milestone in three (3) emojis, they would be: **🌱, 🥕, 🗺️**
+This document provides a summary of our project building process for our app, **AgroVision**
 
 ## Milestone Requirements
 
@@ -20,28 +18,31 @@ If we had to describe this milestone in three (3) emojis, they would be: **🌱,
 
 The following REQUIRED features are completed:
 
-- [X] Creation of GitHub Organization and Group Project Repo
-- [X] Updated Course Portal group info with Group Name and App Description
+- [X] Assign features to each member of your group
+- [X] Establish a goal time for completing each feature
 
 The following REQUIRED files are included:
 
-- [X ] Included 📄 `brainstorming.md`, which contains:
-  - [X ] Our initial brainstorming ideas (6+ ideas)
-  - [X ] 5-category evaluation of our top 3 ideas
-  - [X ] Final app idea chosen
-- [X ] Included 📄 `project_spec.md`, which contains:
-  - [X ] App Overview: Description and evaluation
-  - [X ] App Spec: User features, Chosen API(s), User Interactions
-  - [X ] Wireframe image(s)
+- [X] Updated 📄 `project_spec.md`, which contains:
+  - [X] App Overview (Milestone 1)
+  - [X] App Spec (Milestone 1)
+  - [X] Checked off 2+ completed features
+  - [X] 2+ GIFs of build progress
 
-The following BONUS features are implemented:
-
-- [] Added digital wireframe/mockup image(s)
-- [] Added a GIF of an interactive prototype
+- [] Our 🎥 Demo Video
+  - [ ] We have also added the Demo Video Link to the Group Info Form on the course portal.
 
 The following EXTRA features are implemented:
 
 - [ ] List anything else that you added to improve your submission!
+
+## 🎥 Demo Video
+
+Here's a video that demos all of the app's implemented features:
+
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' />
+
+VIDEO created with **your chosen video tool**
 
 ## Notes
 
