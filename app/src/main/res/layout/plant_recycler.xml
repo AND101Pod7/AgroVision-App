@@ -6,8 +6,9 @@
 
     <ImageView
         android:id="@+id/plant_image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:contentDescription="Image of plant"
         android:background="@color/dark_blue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:background="@drawable/image_label"
-        android:text="Snake Plant"
-        android:textSize="20dp"
+        android:text=""
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/plant_image"
         app:layout_constraintStart_toStartOf="@id/plant_image" />
     <!--water

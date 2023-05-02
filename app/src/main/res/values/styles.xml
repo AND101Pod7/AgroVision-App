@@ -5,10 +5,11 @@
         <item name="android:textSize">12sp</item>
         <item name = "android:layout_marginStart">6dp</item>
         <item name="android:background">@drawable/button_shape</item>
-        <item name="backgroundTint">@color/dark_pale_green</item>
+        <item name="android:backgroundTint">@color/dark_blue</item>
+        <item name="android:padding">12dp</item>
     </style>
     <style name ="plant_list_data_style" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:maxLength">12</item>
         <item name="android:textColor">@color/deep_green</item>
     </style>
