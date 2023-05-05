@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun getPlantImageURL() {
         val client = AsyncHttpClient()
-        val url = "https://perenual.com/api/species-list"
+        val url = "https://perenual.com/api/species-list?key=sk-UD1D644ca5c0ecefa534"
 
         val params = RequestParams()
         params["key"] = "sk-UD1D644ca5c0ecefa534"
-        params["page"] = "1"
         //don't think this is working
+        params["page"] = "1"
         params["edible"] = "1"
 
         client.get(url, params, object: JsonHttpResponseHandler() {
