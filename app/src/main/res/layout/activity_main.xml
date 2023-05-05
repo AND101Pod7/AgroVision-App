@@ -7,21 +7,16 @@
     tools:context=".MainActivity">
 
 
-    <ImageView
+    <TextView
         android:id="@+id/page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="30dp"
-        android:src="@drawable/agrovision_logo"
-
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:maxWidth="300dp"
-        android:maxHeight="100dp"
-
-        app:layout_constraintEnd_toStartOf="@id/logo"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,57 +36,49 @@
         android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/title_text"
         android:textAllCaps="true"
         android:textColor="@color/deep_green"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintTop_toBottomOf="@id/page_title" />
 
     <TextView
         android:id="@+id/sub_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subheader_text"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/Title"
         app:layout_constraintTop_toBottomOf="@id/Title" />
-    <TextView
-        android:id="@+id/quote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/app_slogan"
-        app:layout_constraintEnd_toEndOf="@id/sub_heading"
-        app:layout_constraintTop_toBottomOf="@id/sub_heading"
-        />
-
 
     <!--          Buttons       -->
     <Button
         android:id="@+id/button_one"
         style="@style/ButtonStyle"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:text="@string/button_text_soil"
         app:layout_constraintStart_toStartOf="@id/search_bar"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />
     <Button
         android:id="@+id/button_two"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
         style="@style/ButtonStyle"
-        android:layout_marginStart="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/button_text_zone"
         app:layout_constraintStart_toEndOf="@id/button_one"
         app:layout_constraintTop_toTopOf="@id/button_one" />
+
     <Button
-        android:layout_width="120dp"
-        android:layout_height="50dp"
         style="@style/ButtonStyle"
-        android:layout_marginStart="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="@string/button_text_light"
         app:layout_constraintStart_toEndOf="@id/button_two"
         app:layout_constraintTop_toTopOf="@id/button_one" />
@@ -100,26 +87,26 @@
         android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
         android:text="@string/results_text"
         android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="@id/search_bar"
         app:layout_constraintBottom_toTopOf="@id/plant_list"
-        app:layout_constraintTop_toBottomOf="@id/button_two"
-        />
+        app:layout_constraintStart_toStartOf="@id/search_bar"
+        app:layout_constraintTop_toBottomOf="@id/button_two" />
 
     <EditText
         android:id="@+id/search_bar"
         android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="88dp"
         android:background="@drawable/search_bar"
         android:inputType="textAutoCorrect"
         android:text="@string/searchbar_text"
         android:textColor="@color/dark_pale_green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quote" />
+        app:layout_constraintTop_toBottomOf="@id/sub_heading" />
 
     <Button
         android:id="@+id/confirm_button"
@@ -134,15 +121,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plant_list"
-        android:layout_width="376dp"
-        android:layout_height="285dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="365dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/results"
-         />
+        app:spanCount="2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
