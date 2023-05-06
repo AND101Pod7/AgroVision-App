@@ -103,7 +103,7 @@
         android:layout_marginTop="88dp"
         android:background="@drawable/search_bar"
         android:inputType="textAutoCorrect"
-        android:text="@string/searchbar_text"
+        android:hint="@string/searchbar_text"
         android:textColor="@color/dark_pale_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sub_heading" />
