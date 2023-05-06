@@ -3,11 +3,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 <androidx.cardview.widget.CardView
+    android:id="@+id/plant_card"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardElevation="0dp"
+    android:clickable="true"
     app:cardCornerRadius="5dp"
     android:layout_margin="0dp"
     app:cardBackgroundColor="@color/white"
@@ -28,7 +29,6 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <TextView
         android:id="@+id/plant_name"
         android:layout_width="wrap_content"
@@ -37,6 +37,7 @@
         android:layout_marginStart="10dp"
         android:background="@drawable/image_label"
         android:layout_gravity="bottom"
+        android:textColor="@color/dark_blue"
         android:text="@string/app_slogan"
         app:layout_constraintBottom_toBottomOf="@id/plant_image"
         app:layout_constraintStart_toStartOf="@id/plant_image" />
