@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="36dp"
     tools:context=".MainActivity">
 
     <!--
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/search_bar"
             android:layout_width="280dp"
             android:layout_height="50dp"
@@ -79,6 +79,7 @@
             android:inputType="textAutoCorrect"
             android:hint="@string/searchbar_text"
             android:textColor="@color/dark_pale_green"
+            app:showAsAction = "never|collapseActionView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sub_heading" />
 
@@ -150,6 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:labelFor="@id/plant_list"
         android:text="@string/results_text"
         android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@id/plant_list"

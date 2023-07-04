@@ -1,6 +1,8 @@
 package com.example.agrivision
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,14 +22,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val searchButton:Button = findViewById(R.id.confirm_button)
+        var searchBar:SearchView = findViewById(R.id.search_bar)
+
         rvPlants = findViewById(R.id.plant_list)
         plantList = mutableListOf()
 
         getPlantImageURL()
-        Log.d("plantImageURL", "plant image URL set")
+        searchButton.setOnClickListener{searchForPlant(search = searchBar)} // When search button is clicked.
+        //Log.d("plantImageURL", "plant image URL set")
 
     }
-
+    private fun searchForPlant(search:SearchView){
+        Log.d("confirm_Button", "Search Button Clicked! Search for ${search.query.toString()}")
+       
+    }
     private fun getPlantImageURL() {
         val client = AsyncHttpClient()
         val url = "https://perenual.com/api/species-list"
@@ -63,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 }//end of for loop
                 val adapter = PlantAdapter(plantList)
                 rvPlants.adapter = adapter
-                rvPlants.setLayoutManager(GridLayoutManager(this@MainActivity,2))
+                rvPlants.layoutManager = GridLayoutManager(this@MainActivity, 2)
 
                 Log.d("Plant Adapter", "Adapter set")
 
