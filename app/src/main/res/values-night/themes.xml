@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">@color/deep_green</item>
         <!-- Customize your theme here. -->
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
         <item name="android:fontFamily">@font/inter</item>
 
     </style>

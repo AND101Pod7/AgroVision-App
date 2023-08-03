@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -14,15 +15,19 @@ class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : Re
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val plantImage: ImageView
         val plantName: TextView
-
         val cardButton: CardView
+
         init {
             // Find our RecyclerView item's ImageView for future use
             plantImage = view.findViewById(R.id.plant_image)
             plantName = view.findViewById(R.id.plant_name)
             cardButton = view.findViewById(R.id.plant_card)
 
-            cardButton.setOnClickListener{ Log.d("Debug","Card clicked") }
+            cardButton.setOnClickListener{
+                Log.d("Debug","Card clicked")
+
+
+            }
         }
     }
 
@@ -35,13 +40,13 @@ class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(holder.itemView)
+            Glide.with(holder.itemView)
             .load(plantList[position].getValue("imageURL"))
             .centerCrop()
+            .placeholder(R.drawable.default_plant_image)
             .into(holder.plantImage)
 
         holder.plantName.text = plantList[position].getValue("name")
-
         Log.d("PlantAdapter", "Binding plant at position $position")
     }
 
