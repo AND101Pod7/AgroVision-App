@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AgriVision"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,7 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlantAdapter"></activity>
+        <activity android:name=".PlantAdapter" />
+        <activity
+            android:name=".DetailsAdapter"
+            android:theme="@style/DetailsDialogTheme" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

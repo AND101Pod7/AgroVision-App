@@ -1,4 +1,5 @@
 package com.example.agrivision
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -6,13 +7,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
 
+class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+/* on click of the card, we need the plant name
+    to use as a parameter for a get request to get the plant card details.
+    option 1:
+        find out how to get current card name and create new get request with the name
+        watering, maintenance, hardiness zone,
+    option 2:
+        get details when getting the info for the recycler view
+ */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         val plantImage: ImageView
         val plantName: TextView
         val cardButton: CardView
@@ -23,12 +32,17 @@ class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : Re
             plantName = view.findViewById(R.id.plant_name)
             cardButton = view.findViewById(R.id.plant_card)
 
-            cardButton.setOnClickListener{
-                Log.d("Debug","Card clicked")
-
-
+            cardButton.setOnClickListener() {
+                Intent(cardButton.context,DetailsAdapter::class.java).also{
+                    cardButton.context.startActivity(it)
+                    val plantDetailsList : MutableList<Map<String,String>>
+                    //plantDetailsList =
+                   // val adapter = DetailsAdapter(plantDetailsList)
+                    Log.d("Card Click", "${plantName.text}")
+                }
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,4 +66,8 @@ class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : Re
 
     override fun getItemCount() = plantList.size
 
+
+
+
 }
+

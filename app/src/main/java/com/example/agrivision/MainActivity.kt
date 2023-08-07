@@ -1,11 +1,11 @@
 package com.example.agrivision
 import android.os.Bundle
 import android.util.Log
+
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
         val searchBar:EditText = findViewById(R.id.search_bar)
         val searchButton:Button = findViewById(R.id.confirm_button)
 
-
         rvPlants = findViewById(R.id.plant_list)
         plantList = mutableListOf()
 
         getPlantImageURL()
         searchButton.setOnClickListener{searchForPlant(search = searchBar)} // When search button is clicked
+
 
     }
     private fun searchForPlant(search:EditText){
@@ -56,11 +56,10 @@ class MainActivity : AppCompatActivity() {
         //don't think this is working
         params["edible"] = "1"
         params["q"] = searchQuery
-        Log.d("Plant params", searchQuery)
         Log.d("Plant params", params.toString())
 
 
-        val link = client.get(url, params, object: JsonHttpResponseHandler() {
+       client.get(url, params, object: JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 val plantsArray = json.jsonObject.getJSONArray("data")
                 Log.d("Json String",json.toString())
@@ -98,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                     }//end of for loop
                 val adapter = PlantAdapter(plantList)
                 rvPlants.adapter = adapter
+
                 rvPlants.layoutManager = GridLayoutManager(this@MainActivity, 2)
 
                 Log.d("Plant Adapter", "Adapter set")
@@ -114,6 +114,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+    private fun getPlantDetails(){}
+
 }
 
 

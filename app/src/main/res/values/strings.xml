@@ -1,14 +1,14 @@
 <resources>
-    <string name ="app_name">AgriVision</string>
-    <string name ="title_text">Welcome</string>
-    <string name ="subheader_text">Find your plant care information</string>
+    <string name="app_name">AgriVision</string>
+    <string name="title_text">Welcome</string>
+    <string name="subheader_text">Find your plant care information</string>
     <string name="searchbar_text">Plant Name</string>
-    <string name ="app_slogan">AgriVision helps you grow</string>
-    <string name ="results_text">Results</string>
-    <string name ="button_text_light">Light Needs</string>
-    <string name ="button_text_zone">Hardiness Zone</string>
-    <string name ="button_text_soil">Soil Type</string>
-    <string name = "summary">The Meyer lemon (Citrus meyeri) is an amazing plant species known for its flavor and ease of growing. It is a hybrid between a mandarin orange and a lemon, lending itself to a sweet flavor and slightly tarter taste than either of its parent fruits. Unlike other varieties of lemon, the Meyer has a slightly thinner peel and can be grown easily from seed or even from cuttings from an existing plant. </string>
+    <string name="app_slogan">AgriVision helps you grow</string>
+    <string name="results_text">Results</string>
+    <string name="button_text_light">Light Needs</string>
+    <string name="button_text_zone">Hardiness Zone</string>
+    <string name="button_text_soil">Soil Type</string>
+    <string name="summary">The Meyer lemon (Citrus meyeri) is an amazing plant species known for its flavor and ease of growing. It is a hybrid between a mandarin orange and a lemon, lending itself to a sweet flavor and slightly tarter taste than either of its parent fruits. Unlike other varieties of lemon, the Meyer has a slightly thinner peel and can be grown easily from seed or even from cuttings from an existing plant. </string>
 
 
 </resources>

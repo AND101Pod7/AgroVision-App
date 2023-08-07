@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AgriVision" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.AgriVision" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_pale_green</item>
         <item name="colorPrimaryVariant">@color/green_light</item>
@@ -10,10 +10,14 @@
         <item name="colorSecondaryVariant">@color/pale_green</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/white</item>
         <!-- Customize your theme here. -->
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/dark_blue</item>
         <item name="android:fontFamily">@font/inter</item>
+    </style>
+
+    <style name="DetailsDialogTheme" parent="Theme.AgriVision">
+        <item name="android:windowBackground">@color/transparent</item>
+
     </style>
 </resources>
