@@ -1,4 +1,4 @@
-package com.example.agrivision
+package com.example.agrovision
 
 import org.junit.Test
 

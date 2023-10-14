@@ -1,17 +1,23 @@
-package com.example.agrivision
+package com.example.agrovision
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.widget.doOnTextChanged
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.example.agrivision.R
 import okhttp3.Headers
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var plantList:  MutableList<Map<String, String>>
+    private lateinit var origPlantList:  MutableList<Map<String, String>>
     private lateinit var rvPlants: RecyclerView
+    private lateinit var editText: AppCompatEditText
+    //private lateinit var filteredPlantList: MutableList<Map<String, String>>
 
     var plantName = ""
     var plantImageURL = ""
@@ -21,21 +27,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rvPlants = findViewById(R.id.plant_list)
-        plantList = mutableListOf()
+        origPlantList = mutableListOf()
 
         getPlantImageURL()
         Log.d("plantImageURL", "plant image URL set")
 
+        editText = findViewById(R.id.search_bar)
+        editText.doOnTextChanged { text, _, _, _ ->
+            val query = text.toString().lowercase(Locale.getDefault())
+            Log.d("EditText", "Text changed: $query")
+            filterWithQuery(query)
+        }//??? doOnTextChanged and filterWithQuery
+
+    }//end OnCreate method
+
+    private fun filterWithQuery(query: String) {
+        val filteredList: MutableList<Map<String, String>> = mutableListOf()
+        for (plant in origPlantList) {
+            if (plant["name"]!!.lowercase(Locale.getDefault()).contains(query)) {
+                filteredList.add(plant)
+            }
+        }
+        val adapter = PlantAdapter(filteredList)
+        rvPlants.adapter = adapter
     }
 
+    /*private fun attachAdapter(list: MutableList<Map<String, String>>) { } */
     private fun getPlantImageURL() {
         val client = AsyncHttpClient()
         val url = "https://perenual.com/api/species-list"
-
         val params = RequestParams()
         params["key"] = "sk-UD1D644ca5c0ecefa534"
-        params["page"] = "1"
-        //don't think this is working
+
+        //this isn't working
         params["edible"] = "1"
 
         client.get(url, params, object: JsonHttpResponseHandler() {
@@ -43,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 val plantsArray = json.jsonObject.getJSONArray("data")
                 Log.d("Plant List", plantsArray.toString())
                 // iterate thru the plants array to get individual plant objects
-                for (i in 0 until 30) {
+                for (i in 0 until plantsArray.length()) {
                     val plant = plantsArray.getJSONObject(i)
                     plantName = plant.getString("common_name")
                     Log.d("Plant Name", plantName)
@@ -59,26 +83,23 @@ class MainActivity : AppCompatActivity() {
                     }
                     Log.d("Plant Image", "plant image loaded")
 
-                    plantList.add(mapOf("imageURL" to plantImageURL , "name" to plantName))
+                    origPlantList.add(mapOf("imageURL" to plantImageURL , "name" to plantName))
                 }//end of for loop
-                val adapter = PlantAdapter(plantList)
-                rvPlants.adapter = adapter
-                rvPlants.layoutManager = LinearLayoutManager(this@MainActivity)
 
+                val adapter = PlantAdapter(origPlantList)
+                rvPlants.adapter = adapter
                 Log.d("Plant Adapter", "Adapter set")
+                rvPlants.layoutManager = GridLayoutManager(this@MainActivity,2)
 
             }//end of onSuccess
-            override fun onFailure(
-                statusCode: Int,
-                headers: Headers?,
-                response: String,
-                throwable: Throwable?
-            ) {
+
+            override fun onFailure(statusCode: Int, headers: Headers?, response: String, throwable: Throwable?) {
                 Log.d("Plant Load Error", response)
-            }
+            }//end onFailure
         })
-    }
-   /* private fun getNextImage(button: Button, imageView: ImageView) {
+    }//end getPlantImageURL
+
+ /* private fun getNextImage(button: Button, imageView: ImageView) {
         button.setOnClickListener {
             getPlantImageURL()
             Glide.with(this)
@@ -89,8 +110,8 @@ class MainActivity : AppCompatActivity() {
             plantName.text = title
         }
     }
-
     */
-}
+
+}//end mainActivity
 
 
