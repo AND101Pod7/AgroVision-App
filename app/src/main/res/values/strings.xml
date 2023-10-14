@@ -1,9 +1,9 @@
 <resources>
-    <string name ="app_name">AgriVision</string>
+    <string name ="app_name">AgroVision</string>
     <string name ="title_text">Welcome</string>
     <string name ="subheader_text">Find your plant care information</string>
     <string name="searchbar_text">Plant Name</string>
-    <string name ="app_slogan">AgriVision helps you grow</string>
+    <string name ="app_slogan">AgroVision helps you grow</string>
     <string name ="results_text">Results</string>
     <string name ="button_text_light">Light Needs</string>
     <string name ="button_text_zone">Hardiness Zone</string>

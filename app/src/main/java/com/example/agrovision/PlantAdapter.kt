@@ -1,16 +1,15 @@
-package com.example.agrivision
+package com.example.agrovision
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlin.math.log
+import com.example.agrivision.R
 
 class PlantAdapter(private val plantList: MutableList<Map<String, String>>) : RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
 

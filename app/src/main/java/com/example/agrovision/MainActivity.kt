@@ -1,4 +1,4 @@
-package com.example.agrivision
+package com.example.agrovision
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.example.agrivision.R
 import okhttp3.Headers
 import java.util.*
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         editText = findViewById(R.id.search_bar)
         editText.doOnTextChanged { text, _, _, _ ->
-            val query = text.toString().toLowerCase(Locale.getDefault())
+            val query = text.toString().lowercase(Locale.getDefault())
             Log.d("EditText", "Text changed: $query")
             filterWithQuery(query)
         }//??? doOnTextChanged and filterWithQuery
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     private fun filterWithQuery(query: String) {
         val filteredList: MutableList<Map<String, String>> = mutableListOf()
         for (plant in origPlantList) {
-            if (plant["name"]!!.toLowerCase(Locale.getDefault()).contains(query)) {
+            if (plant["name"]!!.lowercase(Locale.getDefault()).contains(query)) {
                 filteredList.add(plant)
             }
         }
@@ -88,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                 val adapter = PlantAdapter(origPlantList)
                 rvPlants.adapter = adapter
                 Log.d("Plant Adapter", "Adapter set")
-                rvPlants.setLayoutManager(GridLayoutManager(this@MainActivity,2))
+                rvPlants.layoutManager = GridLayoutManager(this@MainActivity,2)
 
             }//end of onSuccess
 
