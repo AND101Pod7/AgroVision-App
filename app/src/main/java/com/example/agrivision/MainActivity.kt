@@ -21,6 +21,12 @@ class MainActivity : AppCompatActivity() {
     var plantImageURL = ""
     var searchQuery = ""
 
+    var watering = ""
+   // var maintenance = ""
+    //var HardZone = ""
+   // var SunRequirements = ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         params["key"] = "sk-UD1D644ca5c0ecefa534"
         params["page"] = "1"
         //don't think this is working
+
         params["edible"] = "1"
         params["q"] = searchQuery
         Log.d("Plant params", params.toString())
@@ -74,26 +81,31 @@ class MainActivity : AppCompatActivity() {
                     try {
                         val plant = plantsArray.getJSONObject(i)
                         plantName = plant.getString("common_name")
+                        watering = plant.getString("watering")
+
+                        // Throw exception for extra information
+                        // get more info from the plants including Maintenance, Watering, HardZone, Sun Requirements
                         Log.d("Plant Name", plantName)
 
-                        //in JSON example, original_url is nested inside the default_image object which is imageObject here
+                        //in JSON example from api docs, original_url is nested inside the default_image object which is imageObject here
                         val imageObject = plant.getJSONObject("default_image")
 
                         if (imageObject.getString("original_url").isNotEmpty()) {
                             plantImageURL = imageObject.getString("original_url")
                         } else {
                             // if the plant doesn't have an image, call the function again to get a new plant
-                            getPlantImageURL()
+                            //getPlantImageURL()
 
                             Log.d("Plant Image", "No plant Image available")
                         }
                         Log.d("Plant Image", "plant image loaded")
-
-                        plantList.add(mapOf("imageURL" to plantImageURL, "name" to plantName))
+                        // map the rest of the the new data to the list of maps..
+                        plantList.add(mapOf("imageURL" to plantImageURL, "name" to plantName, "watering" to watering))
                     } catch(e:org.json.JSONException){
                         Log.d("Error","Error")
 
                     }
+                    Log.d("All Plant info", "$watering")
                     }//end of for loop
                 val adapter = PlantAdapter(plantList)
                 rvPlants.adapter = adapter
