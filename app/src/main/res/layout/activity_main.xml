@@ -4,135 +4,168 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="10dp"
+    tools:context="com.example.agrovision.MainActivity">
 
-
+    <!--
     <TextView
         android:id="@+id/page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/app_name"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+-->
+    <ImageView
+        android:id="@+id/agrovision_logo"
+        android:layout_width="207dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/agrovision_logo"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="129dp"
         android:layout_height="128dp"
         android:src="@mipmap/agrovision_logo_v2_foreground"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/page_title"
+        app:layout_constraintBottom_toBottomOf="@id/agrovision_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/page_title"
-        app:layout_constraintTop_toTopOf="@id/page_title" />
-
+        app:layout_constraintStart_toEndOf="@id/agrovision_logo"
+        app:layout_constraintTop_toTopOf="@id/agrovision_logo" />
     <TextView
         android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
         android:text="@string/title_text"
         android:textAllCaps="true"
         android:textColor="@color/deep_green"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="@id/search"
+        app:layout_constraintTop_toBottomOf="@id/agrovision_logo" />
 
     <TextView
         android:id="@+id/sub_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subheader_text"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@id/Title"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/search"
         app:layout_constraintTop_toBottomOf="@id/Title" />
-    <TextView
-        android:id="@+id/quote"
+
+    <LinearLayout
+        android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/app_slogan"
-        app:layout_constraintEnd_toEndOf="@id/sub_heading"
+        android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/sub_heading"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bar"
+            android:inputType="textAutoCorrect"
+            android:hint="@string/searchbar_text"
+            android:textColor="@color/dark_pale_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sub_heading" />
 
-    <!--          Buttons       -->
-    <Button
-        android:id="@+id/button_one"
-        style="@style/ButtonStyle"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/button_text_soil"
-        app:layout_constraintStart_toStartOf="@id/search_bar"
-        app:layout_constraintTop_toBottomOf="@id/search_bar" />
-    <Button
-        android:id="@+id/button_two"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        style="@style/ButtonStyle"
-        android:layout_marginStart="6dp"
-        android:text="@string/button_text_zone"
-        app:layout_constraintStart_toEndOf="@id/button_one"
-        app:layout_constraintTop_toTopOf="@id/button_one" />
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        style="@style/ButtonStyle"
-        android:layout_marginStart="6dp"
-        android:text="@string/button_text_light"
-        app:layout_constraintStart_toEndOf="@id/button_two"
-        app:layout_constraintTop_toTopOf="@id/button_one" />
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|end"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/logo_search_bar"
+            app:layout_constraintBottom_toBottomOf="@id/search_bar"
+            app:layout_constraintStart_toEndOf="@id/search_bar"
+            app:layout_constraintTop_toTopOf="@id/search_bar" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/buttons_scroll"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="@id/search"
+        app:layout_constraintTop_toBottomOf="@id/search">
+
+        <LinearLayout
+            android:id="@+id/filter_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/search"
+            app:layout_constraintStart_toStartOf="@id/search"
+            app:layout_constraintTop_toBottomOf="@id/search">
+
+            <Button
+                android:id="@+id/button_one"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/button_text_soil"
+                app:layout_constraintStart_toStartOf="@id/search_bar"
+                app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+            <Button
+                android:id="@+id/button_two"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/button_text_zone"
+                app:layout_constraintStart_toEndOf="@id/button_one"
+                app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+            <Button
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:text="@string/button_text_light"
+                app:layout_constraintStart_toEndOf="@id/button_two"
+                app:layout_constraintTop_toBottomOf="@id/search_bar" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="30dp"
         android:text="@string/results_text"
         android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="@id/search_bar"
-        app:layout_constraintBottom_toTopOf="@id/plant_list" />
-
-    <EditText
-        android:id="@+id/search_bar"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/search_bar"
-        android:inputType="textAutoCorrect"
-        android:text="@string/searchbar_text"
-        android:textColor="@color/dark_pale_green"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quote" />
-
-    <Button
-        android:id="@+id/confirm_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/logo_search_bar"
-        app:layout_constraintBottom_toBottomOf="@id/search_bar"
-        app:layout_constraintStart_toEndOf="@id/search_bar"
-        app:layout_constraintTop_toTopOf="@id/search_bar"
-         />
+        app:layout_constraintBottom_toTopOf="@id/plant_list"
+        app:layout_constraintStart_toStartOf="@id/buttons_scroll"
+        app:layout_constraintTop_toBottomOf="@id/buttons_scroll" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plant_list"
-        android:layout_width="376dp"
-        android:layout_height="285dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="367dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="@id/logo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/results"
-        app:layout_constraintTop_toBottomOf="@id/button_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:spanCount="2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
